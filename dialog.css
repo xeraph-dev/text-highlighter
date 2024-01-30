@@ -1,0 +1,201 @@
+.dialog {
+  position: fixed;
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 0.3125rem;
+  border: 1px solid white;
+  background: rgb(18, 18, 18);
+  user-select: none;
+  overflow-y: auto;
+}
+
+.dialog:not(.open) {
+  display: none;
+}
+
+.dialog header {
+  user-select: none;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.dialog header button:first-child {
+  visibility: hidden;
+}
+
+.dialog h3 {
+  margin-block: 0.5rem;
+  text-align: center;
+}
+
+.dialog#settings {
+  top: var(--y, 1rem);
+  left: var(--x, 1rem);
+}
+
+.dialog#settings form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dialog#settings form label {
+  white-space: nowrap;
+}
+
+.dialog#settings form>label {
+  text-align: center;
+}
+
+.dialog#settings form button {
+  flex-grow: 1;
+}
+
+.dialog#settings form fieldset#store {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "fs fs"
+    "save load";
+  gap: 0.5rem;
+  padding-top: 0;
+}
+
+.dialog#settings form fieldset#store>button#save {
+  grid-area: save;
+}
+
+.dialog#settings form fieldset#store>button#load {
+  grid-area: load;
+}
+
+.dialog#settings form fieldset#store>fieldset {
+  grid-area: fs;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: space-around;
+}
+
+.dialog#settings form fieldset#buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5em;
+}
+
+.dialog#settings form fieldset#buttons>button:first-child {
+  flex-basis: 100%;
+}
+
+.dialog#settings form fieldset#remove {
+  flex-direction: row;
+  gap: 1ch;
+  padding: 0.5em;
+}
+
+.dialog#collect {
+  top: var(--y, 1rem);
+  left: var(--x, calc(100% - 1rem));
+  translate: -100% 0;
+  max-height: calc(100% - 144px);
+  overflow-y: auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.dialog#collect>ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dialog#collect li {
+  margin: 0;
+  padding: 0;
+}
+
+.dialog#collect>ul>li>ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog#collect>ul>li>ul>li {
+  display: inline;
+}
+
+.dialog#collect>ul>li>ul>li>* {
+  margin-right: 1ch;
+}
+
+.dialog#collect>ul>li>ul>li>*:last-child {
+  margin-right: 0;
+}
+
+.dialog#collect>ul>li[data-wrapper="mark"] {
+  background: var(--color, mark);
+  color: marktext;
+}
+
+.dialog#collect>ul>li[data-color] {
+  text-decoration-color: var(--color);
+}
+
+.dialog#collect>ul>li[data-color="yellow"] {
+  --color: var(--text-highlighter-yellow);
+}
+
+.dialog#collect>ul>li[data-color="cyan"] {
+  --color: var(--text-highlighter-cyan);
+}
+
+.dialog#collect>ul>li[data-wrapper="underline"] {
+  text-decoration-thinckness: 2px;
+}
+
+.dialog#collect>ul>li[data-wrapper="strike"] {
+  text-decoration-thinckness: 2px;
+}
+
+.dialog#collect ul {
+  margin: 0;
+  padding: 0;
+}
+
+.dialog#features {
+  top: var(--y, 50%);
+  left: var(--x, 50%);
+  translate: -50% -50%;
+  width: 100%;
+  max-width: 500px;
+  max-height: calc(100% - 144px);
+}
+
+.dialog#features ul {
+  padding-inline: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1ch;
+}
+
+.dialog#features form>ul {
+  gap: 2ch;
+}
+
+.dialog#features ul ul {
+  padding: 0;
+}
+
+.dialog#features h4 {
+  margin: 0;
+  margin-bottom: 1ch;
+  padding-left: calc(1ch + 13px);
+}
+
+.dialog#features li {
+  list-style: none;
+}

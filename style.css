@@ -1,0 +1,65 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark light;
+  font-family: system-ui;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0 auto;
+  width: min(120ch, 100% - 2rem);
+  gap: 2rem;
+}
+
+h1 {
+  grid-area: h1;
+  text-align: center;
+}
+
+#dialogs {
+  display: flex;
+  justify-content: center;
+  gap: 1ch;
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  background: rgb(18, 18, 18);
+  width: fit-content;
+  margin-inline: auto;
+  border: 1px solid white;
+  border-top: 0;
+  border-bottom-left-radius: 0.3125rem;
+  border-bottom-right-radius: 0.3125rem;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.3125rem;
+  border-style: dotted;
+}
+
+button {
+  font-size: inherit;
+}
+
+main {
+  padding-block: 2rem;
+}
+
+main section:nth-child(1) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+main section:nth-child(2) {
+  display: flex;
+  gap: 2rem;
+}

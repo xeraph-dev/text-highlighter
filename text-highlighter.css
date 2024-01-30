@@ -1,0 +1,35 @@
+:root {
+  --text-highlighter-yellow: yellow;
+  --text-highlighter-cyan: cyan;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-highlighter-yellow: darkgoldenrod;
+    --text-highlighter-cyan: darkcyan;
+  }
+}
+
+text-highlighter {
+  display: contents !important;
+}
+
+mark[data-text-highlighter][data-color] {
+  background: var(--color);
+}
+
+:is(s, u)[data-text-highlighter] {
+  text-decoration-thinckness: 2px;
+}
+
+:is(s, u)[data-text-highlighter][data-color] {
+  text-decoration-color: var(--color);
+}
+
+:is(mark, s, u)[data-text-highlighter][data-color="yellow"] {
+  --color: var(--text-highlighter-yellow);
+}
+
+:is(mark, s, u)[data-text-highlighter][data-color="cyan"] {
+  --color: var(--text-highlighter-cyan);
+}

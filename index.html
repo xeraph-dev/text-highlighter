@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Text highlight example</title>
+  <meta name="color-scheme" content="dark" />
+
+  <script src="//unpkg.com/@ungap/custom-elements/es.js"></script>
+  <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+
+  <link rel="stylesheet" href="dialog.css" />
+  <script type="module" src="dialog.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="script.js"></script>
+
+  <link rel="stylesheet" href="text-highlighter.css" />
+  <script src="text-highlighter.js"></script>
+</head>
+
+<body>
+  <h1>Lorem Ipsum</h1>
+  <div id="dialogs">
+    <button onclick="settings.classList.toggle('open')">settings</button>
+    <button onclick="features.classList.toggle('open')">features</button>
+    <button onclick="collect.classList.toggle('open')">collect</button>
+  </div>
+  <main data-highlightable>
+    <section>
+      <p>
+        Lorem <i>ipsum</i> <strong>dolor</strong> sit amet, consectetur
+        adipiscing elit. Maecenas orci ante, pulvinar et malesuada id,
+        ultricies a nisi. Quisque rutrum mattis aliquam. Aliquam viverra
+        pharetra ligula, et bibendum mi gravida sit amet. Nunc iaculis eros et
+        fermentum placerat. Curabitur vel velit ut nisl malesuada finibus
+        vitae eu nibh. Aliquam eleifend aliquet vehicula. Ut quis mattis
+        nulla. Fusce eget nisi sollicitudin, dapibus arcu et, placerat purus.
+        Donec sed egestas est. Sed gravida mi in metus finibus, eget consequat
+        urna accumsan. Quisque sollicitudin libero tempor neque tempus, non
+        auctor libero finibus. Vestibulum auctor consectetur tincidunt.
+        Maecenas purus mi, rutrum accumsan nisi non, scelerisque
+        <span>finibus</span> lorem.
+      </p>
+      <p>
+        Vivamus <span>facilisis</span> enim quis porta vulputate. Suspendisse
+        nec lorem ullamcorper justo hendrerit vulputate sed volutpat magna.
+        Quisque at neque congue, venenatis mauris efficitur, aliquam lorem.
+        Aliquam vitae diam sit amet mauris malesuada tincidunt a vel ipsum.
+        Aenean varius mi vitae efficitur elementum. In ipsum urna, tristique
+        id ex at, porttitor tristique leo. Quisque eget risus non ipsum
+        aliquet ultricies. Praesent mattis arcu neque, sed consectetur turpis
+        viverra at. Nullam bibendum non diam sed gravida. Nunc ornare eleifend
+        nisl, in pharetra risus ultrices a. Nulla nec dictum mi.
+      </p>
+    </section>
+    <section>
+      <fieldset data-unhighlightable>
+        <aside>
+          <legend>unhighlightable</legend>
+          <p>
+            Morbi pellentesque imperdiet ante, non tincidunt leo pharetra
+            vitae. Vestibulum ante ipsum primis in faucibus orci luctus et
+            ultrices posuere cubilia curae; Sed eleifend, arcu id congue
+            pellentesque, erat tortor tincidunt augue, vitae congue elit odio
+            in lectus. Quisque luctus nunc dictum, lobortis magna et, posuere
+            eros. Phasellus nibh ipsum, porttitor eget ligula non, venenatis
+            pellentesque odio. Vestibulum a sagittis lacus. Praesent
+            ultricies, lectus in dignissim commodo, sem libero ultricies leo,
+            sed rutrum mi ipsum at libero. Sed quis finibus odio. Quisque
+            convallis sem quis urna volutpat dictum. Maecenas consequat porta
+            turpis, et malesuada felis. Nullam sagittis, elit sed pharetra
+            dictum, est lorem placerat odio, ac sagittis metus purus eget
+            nisi. Curabitur ac sapien mattis, gravida lacus et, tincidunt
+            neque.
+          </p>
+          <fieldset data-highlightable>
+            <legend>highlightable</legend>
+            <p>
+              Morbi convallis vel erat molestie facilisis. In viverra est
+              nibh, eu venenatis justo interdum nec. Proin faucibus nisl ac
+              sapien molestie, ut vehicula sem congue. Proin tempor volutpat
+              mollis. Vestibulum lacus lacus, ultrices ac ipsum eu, lacinia
+              sollicitudin urna. Quisque massa nibh, faucibus eu sodales
+              vitae, sodales ut est. Sed ultrices lectus sit amet augue porta,
+              in volutpat sem blandit. Integer sagittis sagittis dolor, sit
+              amet vulputate lorem euismod eget. Proin sit amet euismod ex.
+              Curabitur semper blandit nisl non tristique. Pellentesque
+              habitant morbi tristique senectus et netus et malesuada fames ac
+              turpis egestas. Donec vestibulum ipsum justo, eget tempus nulla
+              pellentesque sed. Donec scelerisque odio in laoreet malesuada.
+            </p>
+          </fieldset>
+        </aside>
+      </fieldset>
+      <aside>
+        <p>
+          Morbi convallis vel erat molestie facilisis. In viverra est nibh, eu
+          venenatis justo interdum nec. Proin faucibus nisl ac sapien
+          molestie, ut vehicula sem congue. Proin tempor volutpat mollis.
+          Vestibulum lacus lacus, ultrices ac ipsum eu, lacinia sollicitudin
+          urna. Quisque massa nibh, faucibus eu sodales vitae, sodales ut est.
+          Sed ultrices lectus sit amet augue porta, in volutpat sem blandit.
+          Integer sagittis sagittis dolor, sit amet vulputate lorem euismod
+          eget. Proin sit amet euismod ex. Curabitur semper blandit nisl non
+          tristique. Pellentesque habitant morbi tristique senectus et netus
+          et malesuada fames ac turpis egestas. Donec vestibulum ipsum justo,
+          eget tempus nulla pellentesque sed. Donec scelerisque odio in
+          laoreet malesuada.
+        </p>
+        <p>
+          Fusce vitae quam nisl. Nam ipsum erat, facilisis vel feugiat eget,
+          bibendum at massa. Vestibulum ante ipsum primis in faucibus orci
+          luctus et ultrices posuere cubilia curae; Mauris eleifend, ligula ac
+          eleifend ultricies, lacus ex mollis leo, in cursus dui nibh nec
+          lorem. Donec vehicula, augue eu condimentum aliquet, sapien justo
+          ultrices arcu, luctus suscipit velit quam at neque. Sed laoreet
+          tincidunt tempor. Duis et vestibulum tellus. Vestibulum ante ipsum
+          primis in faucibus orci luctus et ultrices posuere cubilia curae;
+          Sed scelerisque mi in tellus pharetra, quis imperdiet arcu semper.
+          Sed gravida ultricies ante lacinia ornare. Nunc vitae pellentesque
+          libero, vitae fermentum metus. Nulla vitae faucibus urna. Praesent
+          nec metus scelerisque, aliquam ante at, blandit dui. Morbi tincidunt
+          ipsum vel orci tincidunt iaculis. Nulla blandit lacus a placerat
+          gravida.
+        </p>
+      </aside>
+    </section>
+    <section>
+      <p>
+        Duis interdum orci sed tellus vulputate, feugiat tincidunt ligula
+        pharetra. Sed dictum nisl quis metus aliquet eleifend. Aenean
+        pellentesque dolor sed placerat bibendum. Cras id eros sed urna
+        hendrerit interdum eu ac velit. Sed auctor malesuada enim, id gravida
+        est facilisis at. Mauris tristique quam eget nunc efficitur, quis
+        luctus est posuere. Sed pulvinar velit quam, et ornare lectus
+        elementum id. Integer consequat sit amet sem nec sollicitudin. Nunc
+        semper, urna ac faucibus consectetur, purus odio placerat neque, eu
+        interdum massa neque nec massa. Nunc in mi sed tellus molestie
+        tincidunt. Interdum et malesuada fames ac ante ipsum primis in
+        faucibus. Nulla ultricies, turpis eu venenatis tristique, sapien
+        ligula laoreet orci, sed egestas velit metus a eros.
+      </p>
+    </section>
+    <section>
+      <fieldset>
+        <legend data-unhighlightable>hard test</legend>
+        <p>
+          <thspan>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </thspan>
+          <thspan>
+            Sed vel metus vel sapien condimentum scelerisque a rutrum massa.
+          </thspan>
+          <thspan>
+            Cras quis orci vel ipsum feugiat pretium quis nec lacus.
+          </thspan>
+        </p>
+        <p>
+          <strong>
+            Maecenas rutrum ligula et dolor ullamcorper, eget elementum justo
+            <thspan>hendrerit.</thspan>
+          </strong>
+        </p>
+        <p>
+          <thspan> Donec id nisi sodales libero bibendum volutpat. </thspan>
+          <thspan>
+            Vivamus nec est euismod lorem dapibus euismod ac sit amet
+          </thspan>
+          <a href="#"> dui </a>
+          <span hidden> dui </span>
+          <thspan>.</thspan>
+          <thspan> Ut mollis augue at est blandit facilisis. </thspan>
+          <thspan>
+            Suspendisse quis odio eget turpis scelerisque laoreet quis non
+            nunc.
+          </thspan>
+          <thspan>
+            Quisque hendrerit lacus condimentum, sollicitudin sapien a,
+            interdum orci.
+          </thspan>
+          <thspan>
+            Etiam at est tempor, lacinia lectus at, consequat nulla.
+          </thspan>
+          <thspan> "Curabitur venenatis ex </thspan>
+          <thspan> " ex nec. </thspan>
+          <thspan> Suspendisse a justo in nisi eleifend elementum. </thspan>
+        </p>
+        <div>
+          <p>Suspendisse a justo in nisi eleifend elementum</p>
+          <div>
+            <div>
+              <p>Suspendisse a justo in nisi eleifend elementum</p>
+              <ul>
+                <li>
+                  Quisque hendrerit lacus condimentum, sollicitudin sapien a,
+                  interdum orci.
+                </li>
+              </ul>
+              <br />
+              <ul>
+                <li>
+                  Etiam at est tempor, lacinia lectus at, consequat nulla.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+  </main>
+  <div id="collect" class="dialog open">
+    <header>
+      <button>&#x2715;</button>
+      <h3>Collect</h3>
+      <button onclick="collect.classList.toggle('open')">&#x2715;</button>
+    </header>
+    <ul></ul>
+  </div>
+  <div id="features" class="dialog">
+    <header>
+      <button>&#x2715;</button>
+      <h3>Features</h3>
+      <button onclick="features.classList.toggle('open')">&#x2715;</button>
+    </header>
+    <form onchange="localStorage.setItem('features', JSON.stringify(Array.from(new FormData(this).keys())))">
+      <ul>
+        <li>
+          <h4>Highlight</h4>
+          <ul>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-highlight-1" />
+                Highlight selected text
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-highlight-2" />
+                Each highlight is identified by id > wrapper > color and
+                cannot overlap another highlight
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-highlight-3" />
+                When highlights overlap, if they have the same wrapper/color,
+                the new highlight is merged with the existing highlights.
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-highlight-4" />
+                When overlap highlights, if have different wrapper/color, the
+                highlighted portion of the existing highlights will be
+                replaced with the new highlight
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-highlight-5" />
+                Don't highlight hidden nodes
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-highlight-6" />
+                When overlap highlights, if have different wrapper/color, the
+                left of the new highlight still has the same parent id and the
+                right gets a new id
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-highlight-7" />
+                Auto purge empty highlight nodes
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-highlight-8" />
+                Disallow highlighting inside unhighlightable nodes
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-highlight-9" />
+                Join multiple text nodes inside a highlighted elements
+              </li>
+            </label>
+          </ul>
+        </li>
+        <li>
+          <h4>Collect</h4>
+          <ul>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-collect-1" />
+                Collect highlights grouped by wrapper/color. Each row is
+                grouped by id (because highlights can be split between
+                different elements)
+              </li>
+            </label>
+          </ul>
+        </li>
+        <li>
+          <h4>Remove</h4>
+          <ul>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-remove-1" />
+                When remove and selection does not exist, remove all
+                highlights
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-remove-2" />
+                When remove and selection exists, remove only the selected
+                portion of the highlighted items within the selection.
+              </li>
+            </label>
+          </ul>
+        </li>
+        <li>
+          <h4>Save, Load and Restore</h4>
+          <ul>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-save-1" />
+                Collect all highlights and save it to localStorage
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-save-2" />
+                Load highlights from localStorage and restore it
+              </li>
+            </label>
+          </ul>
+        </li>
+        <li>
+          <h4>Capabilities</h4>
+          <ul>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-cap-1" />
+                <code>autohighlight</code> property to enable/disable
+                automatic highlight when select
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-cap-2" />
+                <code>autosave</code> property to enable/disable automatic
+                save
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-cap-2" />
+                <code>autoload</code> property to enable/disable automatic
+                load
+              </li>
+            </label>
+          </ul>
+        </li>
+        <li>
+          <h4>Common issues</h4>
+          <ul>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-issue-1" />
+                When the end of an element is highlighted, the rest of the
+                page is highlighted.
+              </li>
+            </label>
+            <label>
+              <li>
+                <input checked type="checkbox" name="feature-issue-2" />
+                When the whole highlighted text is removed, all highlights are
+                removed
+              </li>
+            </label>
+          </ul>
+        </li>
+      </ul>
+    </form>
+  </div>
+  <div id="settings" class="dialog open">
+    <header>
+      <button>&#x2715;</button>
+      <h3>Settings</h3>
+      <button onclick="settings.classList.toggle('open')">&#x2715;</button>
+    </header>
+    <form>
+      <label>
+        <input id="autohighlight" name="autohighlight" type="checkbox" checked
+          onchange="TextHighlighter.node.autoHighlight = this.checked" />
+        auto highlight
+      </label>
+      <fieldset id="wrappers" onchange="TextHighlighter.node.wrapper = event.target.value">
+        <legend>Wrapper</legend>
+        <label>
+          <input name="wrapper" type="radio" value="mark" checked />
+          mark
+        </label>
+        <label>
+          <input name="wrapper" type="radio" value="strike" />
+          strike through
+        </label>
+        <label>
+          <input name="wrapper" type="radio" value="underline" />
+          underline
+        </label>
+      </fieldset>
+      <fieldset id="colors" onchange="TextHighlighter.node.color = event.target.value">
+        <legend>Colors</legend>
+        <label>
+          <input name="color" type="radio" value="" checked />
+          unset
+        </label>
+        <label>
+          <input name="color" type="radio" value="yellow" />
+          yellow
+        </label>
+        <label>
+          <input name="color" type="radio" value="cyan" />
+          cyan
+        </label>
+      </fieldset>
+      <fieldset id="store">
+        <legend>Store</legend>
+        <fieldset>
+          <legend>auto</legend>
+          <label>
+            <input name="autosave" type="checkbox" onchange="TextHighlighter.node.autoSave = this.checked" />
+            save
+          </label>
+          <label>
+            <input name="autoload" type="checkbox" onchange="TextHighlighter.node.autoLoad = this.checked" />
+            load
+          </label>
+        </fieldset>
+        <button id="save" type="button" onclick="TextHighlighter.node.save()">
+          save
+        </button>
+        <button id="load" type="button" onclick="TextHighlighter.node.load()">
+          load
+        </button>
+      </fieldset>
+      <fieldset id="buttons">
+        <button type="button" onclick="TextHighlighter.node.highlight()">
+          highlight
+        </button>
+        <button type="button" onclick="TextHighlighter.node.clear()">
+          clear
+        </button>
+        <button type="button"
+          onclick="[...colors.elements, ...wrappers.elements].forEach(el => el.checked = el.defaultChecked); TextHighlighter.node.reset()">
+          reset
+        </button>
+      </fieldset>
+      <fieldset id="remove">
+        <legend>Remove by ID</legend>
+        <input id="removeById" name="id" />
+        <button type="button" onclick="TextHighlighter.node.removeById(removeById.value); removeById.value = ''">
+          x
+        </button>
+      </fieldset>
+    </form>
+  </div>
+  <text-highlighter autohighlight></text-highlighter>
+</body>
+
+</html>
